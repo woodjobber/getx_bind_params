@@ -14,26 +14,108 @@ and the Flutter guide for
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+class DemoPage extends GXStatefulWidget {
+  const DemoPage({
+    super.key,
+    required this.params,
+  });
+  final DemoPageParams params;
+  @override
+  GXState<DemoPage, DemoPageParams, DemoPageLogic> createState() =>
+      _DemoPageGetXState();
+}
+
+class _DemoPageGetXState
+    extends GXState<DemoPage, DemoPageParams, DemoPageLogic>
+    with GXBindParamsMixin {
+  final logic = Get.put(DemoPageLogic());
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Placeholder(
+          child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => SamplePage(
+                      params: SamplePageParams('123'),
+                    )));
+              },
+              icon: const Icon(Icons.abc_sharp)),
+        ),
+      ),
+    );
+  }
+
+  @override
+  DemoPageParams get params => widget.params;
+}
+
+class DemoPageParams {
+  String name;
+  DemoPageParams(this.name);
+}
+
+class DemoPageLogic extends GetxController
+    with GXControllerBindParamsMixin<DemoPageParams> {
+  final DemoPageState state = DemoPageState();
+
+  @override
+  void didBindParams() {
+    /// TODO: implement didBindParams
+    super.didBindParams();
+    debugPrint(args?.name);
+  }
+}
+
+class DemoPageState {}
+
+// SamplePage
+
+class SamplePage extends GXStatefulWidget {
+  const SamplePage({
+    super.key,
+    required this.params,
+  });
+  final SamplePageParams params;
+  @override
+  GXState<SamplePage, SamplePageParams, SamplePageLogic> createState() =>
+      _SamplePageGetXState();
+}
+
+class _SamplePageGetXState
+    extends GXState<SamplePage, SamplePageParams, SamplePageLogic>
+    with GXBindParamsMixin {
+  final logic = Get.put(SamplePageLogic());
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GetBuilder<SamplePageLogic>(builder: (logic) {
+        return const Placeholder();
+      }),
+    );
+  }
+
+  @override
+  SamplePageParams get params => widget.params;
+}
+
+class SamplePageParams {
+  final String name;
+  SamplePageParams(this.name);
+}
+
+class SamplePageLogic extends GetxController
+    with GXControllerBindParamsMixin<SamplePageParams> {
+  @override
+  void didBindParams() {
+    /// TODO: implement didBindParams
+    super.didBindParams();
+    print(params?.name);
+  }
+}
 ```
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
