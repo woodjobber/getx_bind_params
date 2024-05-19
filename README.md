@@ -27,7 +27,7 @@ class DemoPage extends GXStatefulWidget {
       _DemoPageGetXState();
 }
 
-/// [2] 继承 `GXState` 并实现 `GXBindParamsMixin`
+/// [2] 继承 `GXState<T,P,S>` 并实现 `GXBindParamsMixin`
 /// 
 class _DemoPageGetXState
     extends GXState<DemoPage, DemoPageParams, DemoPageLogic>
@@ -60,7 +60,7 @@ class DemoPageParams {
   DemoPageParams(this.name);
 }
 
-/// [3] 继承 `GXController` 并实现 `GXControllerBindParamsMixin`
+/// [3] 继承 `GXController` 并实现 `GXControllerBindParamsMixin<P>`
 /// 
 class DemoPageLogic extends GetxController
     with GXControllerBindParamsMixin<DemoPageParams> {
@@ -69,6 +69,7 @@ class DemoPageLogic extends GetxController
   @override
   void didBindParams() {
     /// TODO: implement didBindParams
+    /// 参数已经绑定完成，可以做其它操作
     super.didBindParams();
     debugPrint(args?.name);
   }
