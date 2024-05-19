@@ -71,7 +71,7 @@ class DemoPageLogic extends GetxController
     /// TODO: implement didBindParams
     /// 参数已经绑定完成，可以做其它操作
     super.didBindParams();
-    debugPrint(args?.name);
+    debugPrint(args.name);
   }
 }
 
