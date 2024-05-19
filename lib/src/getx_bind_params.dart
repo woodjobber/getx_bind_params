@@ -42,7 +42,7 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
 mixin GXControllerBindParamsMixin<P> on GetxController {
   late P? params;
 
-  P? get args => params;
+  P get args => params!;
 
   @mustCallSuper
   void didBindParams() {
