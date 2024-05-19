@@ -14,6 +14,8 @@ and the Flutter guide for
 ## Usage
 
 ```dart
+/// [1] 继承 `GXStatefulWidget`
+/// 
 class DemoPage extends GXStatefulWidget {
   const DemoPage({
     super.key,
@@ -25,6 +27,8 @@ class DemoPage extends GXStatefulWidget {
       _DemoPageGetXState();
 }
 
+/// [2] 继承 `GXState` 并实现 `GXBindParamsMixin`
+/// 
 class _DemoPageGetXState
     extends GXState<DemoPage, DemoPageParams, DemoPageLogic>
     with GXBindParamsMixin {
@@ -56,6 +60,8 @@ class DemoPageParams {
   DemoPageParams(this.name);
 }
 
+/// [3] 继承 `GXController` 并实现 `GXControllerBindParamsMixin`
+/// 
 class DemoPageLogic extends GetxController
     with GXControllerBindParamsMixin<DemoPageParams> {
   final DemoPageState state = DemoPageState();
