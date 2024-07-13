@@ -1,3 +1,6 @@
+
+## 1.0.3
+* Make parameter `args` nonnullable in StatefullWidget.
 ## 1.0.2
 * Make parameter `args` nonnullable ,and parameter `params` optional.
 ## 1.0.1
