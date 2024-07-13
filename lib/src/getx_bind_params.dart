@@ -32,6 +32,10 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
     logic.didBindParams();
   }
 
+  /// 使用此 属性 必须 保证 params 不等于 null
+  ///
+  P get args => params!;
+
   @override
   void dispose() {
     Get.delete<S>();
@@ -42,6 +46,8 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
 mixin GXControllerBindParamsMixin<P> on GetxController {
   late P? params;
 
+  /// 使用此 属性 必须 保证 params 不等于 null
+  ///
   P get args => params!;
 
   @mustCallSuper
