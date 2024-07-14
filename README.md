@@ -108,6 +108,10 @@ class _SamplePageGetXState
 
   @override
   SamplePageParams get params => widget.params;
+
+  @override
+  String? get tag => null;
+  
 }
 
 class SamplePageParams {
