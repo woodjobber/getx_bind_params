@@ -20,9 +20,11 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
   @mustCallSuper
   P? get params;
 
+  @mustCallSuper
   String? get tag => null;
 
   void onInitGX() {}
+
   @override
   void initState() {
     onInitGX();

@@ -53,6 +53,9 @@ class _DemoPageGetXState
 
   @override
   DemoPageParams get params => widget.params;
+  
+  @override
+  String? get tag => null;
 }
 
 class DemoPageParams {
