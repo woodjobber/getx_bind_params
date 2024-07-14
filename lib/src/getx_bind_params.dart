@@ -50,7 +50,7 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
 
   @override
   void dispose() {
-    Get.delete<S>();
+    Get.delete<S>(tag: tag);
     super.dispose();
   }
 }
