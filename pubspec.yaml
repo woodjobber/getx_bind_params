@@ -1,6 +1,6 @@
 name: getx_bind_params
 description: "Relying on the get state management third-party library, the purpose is to solve the problem of not using Get routing management, or using go_router routing management, etc. In the project, Get is used as state management, and there is no automatic release of controllers and binding parameters.."
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/woodjobber/getx_bind_params.git
 
 environment:

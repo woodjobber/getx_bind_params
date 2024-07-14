@@ -17,10 +17,8 @@ abstract class GXState<T extends GXStatefulWidget, P,
 
 mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
     S extends GXControllerBindParamsMixin<P>> on GXState<T, P, S> {
-  @mustCallSuper
   P? get params;
 
-  @mustCallSuper
   String? get tag => null;
 
   void onInitGX() {}
