@@ -19,6 +19,8 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
     S extends GXControllerBindParamsMixin<P>> on GXState<T, P, S> {
   P? get params;
 
+  /// 实例标签
+  ///
   String? get tag => null;
 
   void onInitGX() {}
@@ -37,6 +39,7 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
     if (isRegistered) {
       S logic = Get.find<S>(tag: tag == '' ? null : tag);
       logic.params = value;
+      logic.tag = tag;
       logic.didBindParams();
     }
   }
@@ -54,6 +57,8 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
 
 mixin GXControllerBindParamsMixin<P> on GetxController {
   late P? params;
+
+  late String? tag;
 
   /// 使用此 属性 必须 保证 params 不等于 null
   ///
