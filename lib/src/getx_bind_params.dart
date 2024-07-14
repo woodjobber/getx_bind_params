@@ -20,16 +20,25 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
   @mustCallSuper
   P? get params;
 
+  String? get tag => null;
+
+  void onInitGX() {}
   @override
   void initState() {
+    onInitGX();
     bindParams(params);
     super.initState();
   }
 
   void bindParams(P? value) {
-    S logic = Get.find<S>();
-    logic.params = value;
-    logic.didBindParams();
+    bool isRegistered = Get.isRegistered<S>(tag: tag == '' ? null : tag);
+    assert(isRegistered == true,
+        '"${S.runtimeType}" not found. You need to Call "Get.put(${S.runtimeType}())"');
+    if (isRegistered) {
+      S logic = Get.find<S>(tag: tag == '' ? null : tag);
+      logic.params = value;
+      logic.didBindParams();
+    }
   }
 
   /// 使用此 属性 必须 保证 params 不等于 null
