@@ -18,7 +18,8 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
+# flutter  pub publish --dry-run
+# flutter pub publish --server=https://pub.dartlang.org
 # The following section is specific to Flutter packages.
 flutter:
 
