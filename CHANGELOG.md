@@ -1,4 +1,4 @@
-## 1.0.5
+## 1.0.4
 * Fix Bugs
 ## 1.0.3
 * Make parameter `args` nonnullable in StatefullWidget.
