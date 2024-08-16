@@ -51,7 +51,11 @@ mixin GXBindParamsMixin<T extends GXStatefulWidget, P,
 
   @override
   void dispose() {
-    Get.delete<S>(tag: tag);
+    if (tag == '') {
+      Get.delete<S>();
+    } else {
+      Get.delete<S>(tag: tag);
+    }
     super.dispose();
   }
 }
